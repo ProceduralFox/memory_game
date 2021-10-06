@@ -1,0 +1,291 @@
+/************ OVERALL DIMENSION ************/
+:root {
+    --orange: #FDA214;
+    --medium-1: #BCCED9;
+    --dark-1: #304859;
+    --dark-2: #152938;
+    --light-1: #F2F2F2;
+    --medium-2: #7191A5;
+    --medium-3: #6395B8;
+    --light-2: #FCFCFC;
+
+    --font: 'Atkinson Hyperlegible', sans-serif;
+
+    font-size: 62.5%;
+
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: inherit;
+}
+
+.body {
+    background-color: var(--light-2);
+    font-family: var(--font);
+    font-size: 4.8rem;
+
+    width: 144rem;
+    height: 102.4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+/************ BUTTONS ************/
+
+.button{
+    background-color: orange;
+    color: var(--light1);
+    font-family: var(--font);
+
+    font-size: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.btn_primary{
+    height: 5.2rem;
+    width: 12.7rem;
+    border-radius: 2.6rem;
+
+    background-color: var(--orange);
+    color: var(--light-2);
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    opacity: 1;
+
+    transition: all .2s;
+
+}
+
+.btn_primary:hover{
+    opacity: 0.7;
+}
+
+.btn_secondary{
+    height: 5.2rem;
+    width: 14.9rem;
+    border-radius: 2.6rem;
+
+    background-color: var(--medium-1);
+    color: var(--dark-1);
+
+    font-weight: 700;
+    font-size: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    transition: all .2s;
+}
+
+.btn_secondary:hover{
+    color: var(--light-2);
+    background-color: var(--medium-3);
+}
+
+.menu_selection {
+    width: 25.6rem;
+    height: 5.2rem;
+    border-radius: 2.6rem;
+
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    letter-spacing: 0px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: var(--light-1);
+
+    background-color: var(--dark-1);
+
+    transition: all .2s;
+    
+}
+
+.menu_selection:hover{
+    background-color: var(--medium-3);
+}
+
+.menu_selection:active{
+    background-color: var(--medium-1);
+}
+
+.btn_big{
+    width: 54.1rem;
+    height: 7rem;
+
+    background-color: var(--orange);
+
+    color: var(--light-2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3.2rem;
+    line-height: 4rem;
+    font-weight: 700;
+    
+    opacity: 1;
+
+    transition: all .2s;
+}
+
+.btn_big:hover{
+    opacity: 0.7;
+}
+
+
+
+/************   CARDS UNIVERSAL ************/
+
+.unclicked {
+    color: transparent;
+    background-color: var(--dark-2);
+
+    transition: all .2s;
+}
+
+.unclicked:hover{
+    background-color: var(--medium-3);
+}
+
+.clicked{
+    color: var(--light-2);
+    background-color: var(--orange);
+}
+
+.solved{
+    background-color: var(--medium-2);
+    color: var(--light-2);
+}
+
+/************ 4 by 4 specific ************/
+
+.grid4 {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    column-gap: 2rem;
+    row-gap: 2rem;
+
+    height: 53.2rem;
+    width: 53.2rem;
+
+    margin-top: 10.5rem;
+}
+
+
+
+.card4 {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 11.8rem;
+    width: 11.8rem;
+
+    border-radius: 5.9rem;
+
+    font-weight: 700;
+    font-size: 5.6rem;
+}
+
+.upper4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 111rem;
+    height: 5.2rem;
+    margin-top: 6.7rem;
+}
+
+.utilities4{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 29.2rem;
+    height: 5.2rem;
+
+}
+
+.name4{
+    font-size: 4rem;
+    font-weight: 700;
+
+    color: var(--dark-2);
+
+    line-height: 4.96rem;
+
+}
+
+.lower4{
+    width: 54rem;
+    height: 7.2rem;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    margin-top: 12.6rem;
+}
+
+.lower4_box{
+    background-color: #DFE7EC;
+
+    width: 25.5rem;
+    height: 7.2rem;
+
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    font-weight: 700rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: 1rem;
+}
+
+.lower4_box_text{
+    color: var(--medium-2);
+}
+
+.lower4_box_data{
+    color: var(--dark-1);
+
+    font-size: 3.2rem;
+    line-height: 4rem;
+}
+
+/************ 6 by 6 specific ************/
