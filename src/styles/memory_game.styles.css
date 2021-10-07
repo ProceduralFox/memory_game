@@ -116,9 +116,11 @@ html {
     justify-content: center;
     align-items: center;
 
-    color: var(--light-1);
+    color: var(--light-2);
 
     background-color: var(--dark-1);
+
+    border: none;
 
     transition: all .2s;
     
@@ -128,13 +130,34 @@ html {
     background-color: var(--medium-3);
 }
 
-.menu_selection:active{
+.menu_selection_clicked{
+    border: none;
+    width: 25.6rem;
+    height: 5.2rem;
+    border-radius: 2.6rem;
+
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    letter-spacing: 0px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: var(--light-2);
+
     background-color: var(--medium-1);
+
+    transition: all .2s;
 }
 
 .btn_big{
     width: 54.1rem;
     height: 7rem;
+
+    border-radius: 3.5rem;
 
     background-color: var(--orange);
 
@@ -151,6 +174,8 @@ html {
     opacity: 1;
 
     transition: all .2s;
+
+    border: none;
 }
 
 .btn_big:hover{
@@ -289,3 +314,83 @@ html {
 }
 
 /************ 6 by 6 specific ************/
+
+.grid6{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+    gap: 1.6rem;
+
+    width: 57.2rem;
+    height: 57.2rem;
+
+    margin-top: 8.5rem;
+}
+
+.card6{
+    width: 8.2rem;
+    height: 8.2rem;
+
+    border-radius: 4.1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 4.4rem;
+
+}
+
+
+/************ START MENU ************/
+
+.start_page{
+    background-color: var(--dark-2);
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start_menu{
+    width: 65.4rem;
+    height: 55.9rem;
+    display: flex;
+
+    border-radius: 2rem;
+
+    background-color: var(--light-2);
+
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.start_menu_item{
+    width: 54.2rem;
+    height: 9.3rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.start_title{
+    font-size: 4rem;
+    line-height: 5rem;
+    font-weight: 700;
+
+    color: var(--light-2);
+
+    margin-bottom: 8rem;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
