@@ -16,7 +16,28 @@ const Memory_game = () => {
         return array
     }
 
-    const shuffle = () => {
+    function shuffle_raw (a) {
+        const deck = [...a]
+        var m = deck.length - 1
+
+        console.log("shuffle raw ran", m)
+        console.log("input is", a)
+
+        while(m){
+            const n = Math.floor(Math.random() * m);
+            console.log("the inner loop runs too")
+            const temp = deck[m]
+            deck[m] = deck[n]
+            deck[n] = temp
+
+            m = m - 1
+        }
+
+        return deck
+    }
+
+    const shuffle = (reset) => {
+
         var deck = [...cards]
         var m = deck.length - 1
 
@@ -37,6 +58,10 @@ const Memory_game = () => {
         setCards(deck)
         setActive()
         setMoves(0)
+        setPaired(0)
+        if(reset){
+            setStarted(false)
+        }
     }
 
     const game_click = () => {
@@ -60,6 +85,7 @@ const Memory_game = () => {
     const [solved, setSolved] = useState([])
     const [started, setStarted] = useState(false)
     const [settings, setSettings] = useState([5, 5, 5, 5])
+    const [paired, setPaired] = useState(0)
 
     if(!started){
         return (
@@ -92,8 +118,13 @@ const Memory_game = () => {
                     </div>
 
                     <button onClick={()=>{
-                        setCards(generate(settings[2]))
-                        setStarted(true)}}className="btn_big">Start Game</button>
+                        var board = generate(settings[2])
+                        board = shuffle_raw(board)
+                        setCards(board)
+                        setStarted(true)
+                        console.log(active)
+                        
+                        }}className="btn_big">Start Game</button>
                 </div>
             </div>
         </div> )
@@ -101,11 +132,39 @@ const Memory_game = () => {
 
     return (
     <div className="body">
+
+        {
+            paired == (settings[2] * settings[2])/2 ?
+
+            <div className="win">
+                <div className="win_square">
+
+                    <div className="win_text">
+                        <h2 className="win_title">You did it!</h2>
+                        <h4 className="win_blurb">Game Over! Here's how you got on...</h4>
+                    </div>
+
+                    <div className="win_results">
+                        <div className="win_results_item">TIME</div>
+                        <div className="win_results_item">Moves: {moves}</div>
+                    </div>
+
+                    <div className="win_buttons">
+                        <button onClick={()=>{shuffle(false)}} className="btn_primary_win">Restart</button>
+                        <button onClick={()=>{shuffle(true)}} className="btn_secondary_win">Start New Game</button>
+                    </div>
+
+                
+                </div>
+            </div>
+            :
+            <div className=""></div>
+        }
         <div className={`upper4`}>
             <div className="name4">memory</div>
             <div className="utilities4">
-                <button onClick={()=>shuffle()} className="btn_primary">Restart</button>
-                <button onClick={()=>{setStarted(false)}}className="btn_secondary">New Game</button>
+                <button onClick={()=>shuffle(false)} className="btn_primary">Restart</button>
+                <button onClick={()=>shuffle(true)}className="btn_secondary">New Game</button>
             </div>
         </div>
         <div className={`grid${settings[2]}`}>
@@ -129,6 +188,8 @@ const Memory_game = () => {
                                     var deck = [...cards]
                                     deck[index][1] = 1
                                     deck[active][1] = 1
+                                    setPaired(paired+1)
+                                    console.log(paired)
                                 } 
                             }
                             setActive(index)

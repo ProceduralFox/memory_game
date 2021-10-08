@@ -27,12 +27,18 @@ html {
     font-size: 4.8rem;
 
     width: 144rem;
-    height: 102.4rem;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    z-index: 3;
+
+    position: relative;
+
+    border: 1px solid red;
     
 }
 
@@ -46,6 +52,34 @@ html {
     font-size: 2rem;
     padding: 2rem;
     border-radius: 20px;
+}
+
+.btn_primary_win{
+    height: 5.2rem;
+    width: 26.4rem;
+    border-radius: 2.6rem;
+
+    background-color: var(--orange);
+    color: var(--light-2);
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    opacity: 1;
+
+    transition: all .2s;
+
+}
+
+.btn_primary_win:hover{
+    opacity: 0.7;
 }
 
 .btn_primary{
@@ -97,6 +131,31 @@ html {
 }
 
 .btn_secondary:hover{
+    color: var(--light-2);
+    background-color: var(--medium-3);
+}
+
+.btn_secondary_win{
+    height: 5.2rem;
+    width: 26.4rem;
+    border-radius: 2.6rem;
+
+    background-color: var(--medium-1);
+    color: var(--dark-1);
+
+    font-weight: 700;
+    font-size: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    transition: all .2s;
+}
+
+.btn_secondary_win:hover{
     color: var(--light-2);
     background-color: var(--medium-3);
 }
@@ -393,4 +452,94 @@ html {
 
     justify-content: center;
     align-items: center;
+}
+
+
+/************ POPUP ************/
+
+.win{
+    z-index: 5;
+    height: 100vh;
+    width: 100vw;
+
+    position: absolute;
+
+    background-color: #979797dc;
+
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.win_square{
+    width: 65.4rem;
+    height: 51rem;
+    border-radius: 2rem;
+
+    background-color: var(--light-2);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.win_title{
+    font-size: 4.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 6rem;
+    letter-spacing: 0px;
+    text-align: center;
+
+    color: var(--dark-2);
+
+}
+
+.win_blurb{
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    text-align: center;
+
+    color: var(--medium-2);
+
+}
+
+.win_results{
+    height: 16rem;
+    width: 54.2rem;
+
+    display: flex;
+    flex-direction: column;
+
+}
+.win_results_item{
+    width: 54.2rem;
+    height: 7.2rem;
+    border-radius: 1rem;
+
+    background-color: #DFE7EC;
+
+
+    display: flex;
+
+    justify-content: space-evenly;
+}
+
+.win_buttons{
+    height: 5.2rem;
+    width: 54.2rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnz{
+    width: 26.4rem;
 }
