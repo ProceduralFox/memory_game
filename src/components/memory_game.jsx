@@ -79,13 +79,29 @@ const Memory_game = () => {
     }
 
     const [cards, setCards] = useState(generate(6))
-    const [test, setTest] = useState()
     const [active, setActive] = useState()
     const [moves, setMoves] = useState(0)
     const [solved, setSolved] = useState([])
     const [started, setStarted] = useState(false)
+    const [menu, setMenu] = useState(false)
     const [settings, setSettings] = useState([5, 5, 5, 5])
     const [paired, setPaired] = useState(0)
+    const [screen, setScreen] = useState(2400)
+
+
+    useEffect(()=>{
+        function handle_resize(){
+            setScreen(window.innerWidth)
+            
+        }
+
+        window.addEventListener('resize', handle_resize)
+
+        return () => {
+            window.removeEventListener('resize', handle_resize)
+        }
+    }, [])
+
 
     if(!started){
         return (
@@ -136,7 +152,7 @@ const Memory_game = () => {
         {
             paired == (settings[2] * settings[2])/2 ?
 
-            <div className="win">
+            <div className="popup">
                 <div className="win_square">
 
                     <div className="win_text">
@@ -160,11 +176,30 @@ const Memory_game = () => {
             :
             <div className=""></div>
         }
+
+        {
+            menu == true ? 
+            <div className="popup">
+                <div className="menu_square">
+                    <button onClick={()=>{shuffle(false); setMenu(false)}}className="menu_primary">Restart</button>
+                    <button onClick={()=>{shuffle(true); setMenu(false)}} className="menu_secondary">New Game</button>
+                    <button onClick={()=>setMenu(false)}className="menu_secondary">Resume Game</button>
+                </div>
+            </div> 
+            : 
+            <div className=""></div>
+        }
+
         <div className={`upper4`}>
             <div className="name4">memory</div>
             <div className="utilities4">
-                <button onClick={()=>shuffle(false)} className="btn_primary">Restart</button>
-                <button onClick={()=>shuffle(true)}className="btn_secondary">New Game</button>
+                {
+                    screen <= 600 ? <button onClick={()=>{setMenu(true); console.log(menu)}} className="utilities_mobile"> Menu</button> : 
+                        <>
+                            <button onClick={()=>shuffle(false)} className="btn_primary">Restart</button>
+                            <button onClick={()=>shuffle(true)}className="btn_secondary">New Game</button>
+                        </>
+                }
             </div>
         </div>
         <div className={`grid${settings[2]}`}>
@@ -189,7 +224,6 @@ const Memory_game = () => {
                                     deck[index][1] = 1
                                     deck[active][1] = 1
                                     setPaired(paired+1)
-                                    console.log(paired)
                                 } 
                             }
                             setActive(index)
@@ -201,7 +235,7 @@ const Memory_game = () => {
             })}
         </div>
 
-        <div className="lower4">
+        <div className={`lower${settings[2]}`}>
             <div className="lower4_box">
                 <div className="lower4_box_text">Time</div>
                 <div className="lower4_box_data">1:45</div>

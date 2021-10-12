@@ -27,7 +27,12 @@ html {
     font-size: 4.8rem;
 
     width: 144rem;
+    max-width: 100vw;
     height: 100vh;
+
+    overflow: hidden;
+
+    background-color: lightblue;
 
     display: flex;
     flex-direction: column;
@@ -241,6 +246,74 @@ html {
     opacity: 0.7;
 }
 
+.utilities_mobile{
+    height: 4rem;
+    width: 7.8rem;
+    border-radius: 2.6rem;
+
+    background-color: var(--orange);
+
+    color: var(--light-2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0px;
+    text-align: center;
+
+    border: none;
+
+}
+
+.menu_primary{
+    height: 4.8rem;
+    width: 27.9rem;
+    left: 0px;
+    top: 0px;
+    border-radius: 2.6rem;
+    border: none;
+
+    background-color: var(--orange);
+    color: var(--light-2);
+
+    font-family: var(--font);
+
+    
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    text-align: center;
+
+}
+
+.menu_secondary{
+    height: 4.8rem;
+    width: 27.9rem;
+    left: 0px;
+    top: 0px;
+    border-radius: 2.6rem;
+    border: none;
+
+    background-color: var(--medium-1);
+    color: var(--dark-1);
+
+    font-family: var(--font);
+
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    text-align: center;
+
+
+}
 
 
 /************   CARDS UNIVERSAL ************/
@@ -307,6 +380,7 @@ html {
     align-items: center;
 
     width: 111rem;
+    max-width: 92vw;
     height: 5.2rem;
     margin-top: 6.7rem;
 }
@@ -342,6 +416,8 @@ html {
     justify-content: space-between;
 
     margin-top: 12.6rem;
+
+    margin-bottom: 7rem;
 }
 
 .lower4_box{
@@ -404,6 +480,19 @@ html {
 
 }
 
+.lower6{
+    width: 54rem;
+    height: 7.2rem;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    margin-top: 12.6rem;
+    margin-bottom: 7rem;
+}
+
 
 /************ START MENU ************/
 
@@ -455,9 +544,9 @@ html {
 }
 
 
-/************ POPUP ************/
+/************ POPUPS ************/
 
-.win{
+.popup{
     z-index: 5;
     height: 100vh;
     width: 100vw;
@@ -542,4 +631,175 @@ html {
 
 .btnz{
     width: 26.4rem;
+}
+
+.menu_square{
+    width: 32.7rem;
+    height: 22.4rem;
+    border-radius: 1rem;
+
+    background-color: var(--light-2);
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/************ RESPONSIVE ************/
+
+@media only screen and (max-width: 768px) {
+    .grid4{
+    }
+    .card4{
+    }
+    .upper4{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        width: 68.9rem;
+        height: 5.2rem;
+        margin-top: 3.7rem;
+    }
+
+    .lower6{
+        width: 54rem;
+        height: 7.2rem;
+    
+        display: flex;
+        flex-direction: row;
+    
+        justify-content: space-between;
+    
+        margin-top: 12.2rem;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 667px) {
+      .start_menu{
+          width: 32.7rem;
+          height: 38.6rem;
+
+          overflow: hidden;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+      }
+      
+    
+    .start_menu_item{
+        width: 27.9rem;
+    }
+
+    .menu_selection{
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0px;
+        text-align: center;
+
+
+        width: 13.4rem;
+        height: 4rem;
+        
+    }
+
+    .menu_selection_clicked{
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0px;
+        text-align: center;
+
+        
+        width: 13.4rem;
+        height: 4rem;
+        
+    }
+
+    .btn_big{
+        width: 27.9rem;
+        height: 4.8rem;
+        border-radius: 2.6rem;
+
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.2rem;
+        letter-spacing: 0px;
+
+    }
+
+    .start_title{
+        font-size: 3.2rem;
+    }
+
+
+    .grid6{
+        width: 32.7rem;
+        height: 32.7rem;
+
+        grid-gap: 0.912rem;
+    }
+
+    .card6{
+        width: 4.7rem;
+        height: 4.7rem;
+        border-radius: 4.1rem;
+
+        font-size: 2.4rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 3rem;
+        letter-spacing: 0px;
+        text-align: center;
+    }
+
+    .grid4{
+        width: 32.7rem;
+        height: 32.7rem;
+
+        margin-top: 5rem;
+    }
+
+    .card4{
+        width: 7.3rem;
+        height: 7.3rem;
+        border-radius: 5.9rem;
+
+        font-size: 4rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 5rem;
+        letter-spacing: 0px;
+        text-align: center;
+
+    }
+
+    .lower4{
+        width: 32.7rem;
+        height: 7rem;
+    
+        display: flex;
+        flex-direction: row;
+    
+        justify-content: space-between;
+    
+        margin-top: 5rem;
+    
+        margin-bottom:2.4rem;
+    }
+
+    .lower4_box{
+        width: 15.1rem;
+        height: 7rem;
+    }
 }
