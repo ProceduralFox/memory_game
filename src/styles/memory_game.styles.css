@@ -17,8 +17,16 @@
     padding: 0;
 }
 
+.noselect{
+    user-select: none;
+}
+
 html {
     font-family: inherit;
+}
+
+button {
+    cursor: pointer;
 }
 
 .body {
@@ -607,7 +615,13 @@ html {
     display: flex;
     flex-direction: column;
 
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 4rem;
+
 }
+
 .win_results_item{
     width: 54.2rem;
     height: 7.2rem;
@@ -617,8 +631,36 @@ html {
 
 
     display: flex;
+    flex-direction: row;
+    align-items: center;
 
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+.win_results_item > h2{
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    text-align: left;
+
+    color: var(--medium-2);
+
+    margin-left: 3.2rem;
+    
+}
+
+.win_results_item > div {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 4rem;
+    letter-spacing: 0px;
+    text-align: right;
+
+    margin-right: 3.2rem;
+
+    color: var(--dark-1);
 }
 
 .win_buttons{
@@ -785,6 +827,20 @@ html {
     }
 
     .lower4{
+        width: 32.7rem;
+        height: 7rem;
+    
+        display: flex;
+        flex-direction: row;
+    
+        justify-content: space-between;
+    
+        margin-top: 5rem;
+    
+        margin-bottom:2.4rem;
+    }
+
+    .lower6{
         width: 32.7rem;
         height: 7rem;
     

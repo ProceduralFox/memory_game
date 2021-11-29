@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../styles/memory_game.styles.css'
 
 
@@ -59,8 +59,14 @@ const Memory_game = () => {
         setActive()
         setMoves(0)
         setPaired(0)
+        setSeconds(0)
+        setMinutes(0)
+
         if(reset){
             setStarted(false)
+            setDelay(null)
+        } else {
+            setDelay(1000)
         }
     }
 
@@ -78,6 +84,26 @@ const Memory_game = () => {
         setSettings(temp)
     }
 
+    function useInterval(callback, delay) {
+        const savedCallback = useRef();
+      
+        // Remember the latest callback.
+        useEffect(() => {
+          savedCallback.current = callback;
+        }, [callback]);
+      
+        // Set up the interval.
+        useEffect(() => {
+          function tick() {
+            savedCallback.current();
+          }
+          if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+          }
+        }, [delay]);
+    }
+
     const [cards, setCards] = useState(generate(6))
     const [active, setActive] = useState()
     const [moves, setMoves] = useState(0)
@@ -87,6 +113,9 @@ const Memory_game = () => {
     const [settings, setSettings] = useState([5, 5, 5, 5])
     const [paired, setPaired] = useState(0)
     const [screen, setScreen] = useState(2400)
+    const [seconds, setSeconds] = useState(0)
+    const [minutes, setMinutes] = useState(0)
+    const [delay, setDelay] = useState(null)
 
 
     useEffect(()=>{
@@ -101,6 +130,20 @@ const Memory_game = () => {
             window.removeEventListener('resize', handle_resize)
         }
     }, [])
+
+    useEffect(()=>{
+
+    }, [])
+
+    useInterval(()=>{
+        if(seconds === 59){
+            setMinutes(minutes + 1)
+            setSeconds(0)
+        } else {
+            setSeconds(seconds + 1);
+        }
+
+    }, delay);
 
 
     if(!started){
@@ -139,6 +182,8 @@ const Memory_game = () => {
                         setCards(board)
                         setStarted(true)
                         console.log(active)
+
+                        setDelay(1000)
                         
                         }}className="btn_big">Start Game</button>
                 </div>
@@ -161,8 +206,8 @@ const Memory_game = () => {
                     </div>
 
                     <div className="win_results">
-                        <div className="win_results_item">TIME</div>
-                        <div className="win_results_item">Moves: {moves}</div>
+                        <div className="win_results_item"><h2>Time Elapsed</h2> <div className="win_results_item_value">{minutes}:{seconds}</div></div>
+                        <div className="win_results_item"><h2>Moves Taken</h2> <div className="win_results_item_value" >{moves} Moves</div></div>
                     </div>
 
                     <div className="win_buttons">
@@ -202,28 +247,31 @@ const Memory_game = () => {
                 }
             </div>
         </div>
+
         <div className={`grid${settings[2]}`}>
             {cards.map((card, index)=>{
 
                 if(card[1]==1){
-                    return <div className={`solved card${settings[2]}`}>
+                    return <div className={`solved card${settings[2]} noselect`}>
                         {card[0]}
                     </div>
                 }
 
-
-
                 return(
                     <div key={index} 
-                        className={`${active===index ? 'clicked':'unclicked'} card${settings[2]}`}
+                        className={`${active===index ? 'clicked':'unclicked'} card${settings[2]} noselect`}
                         onClick={()=>{
                             if(active){
                                 const match = cards[active][0] === card[0]
-                                if(match){
+                                if(match && active!=index){
                                     var deck = [...cards]
                                     deck[index][1] = 1
                                     deck[active][1] = 1
                                     setPaired(paired+1)
+
+                                    if(paired + 1 == (settings[2] * settings[2])/2){
+                                        setDelay(null)
+                                    }
                                 } 
                             }
                             setActive(index)
@@ -238,7 +286,7 @@ const Memory_game = () => {
         <div className={`lower${settings[2]}`}>
             <div className="lower4_box">
                 <div className="lower4_box_text">Time</div>
-                <div className="lower4_box_data">1:45</div>
+                <div className="lower4_box_data">{minutes}:{seconds}</div>
             </div>
             <div className="lower4_box">
                 <div className="lower4_box_text">Moves</div>
