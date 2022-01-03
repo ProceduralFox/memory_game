@@ -193,7 +193,6 @@ const Memory_game = () => {
 
     return (
     <div className="body">
-
         {
             paired == (settings[2] * settings[2])/2 ?
 
