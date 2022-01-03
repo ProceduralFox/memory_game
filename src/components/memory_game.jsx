@@ -227,7 +227,7 @@ const Memory_game = () => {
                 <div className="menu_square">
                     <button onClick={()=>{shuffle(false); setMenu(false)}}className="menu_primary">Restart</button>
                     <button onClick={()=>{shuffle(true); setMenu(false)}} className="menu_secondary">New Game</button>
-                    <button onClick={()=>setMenu(false)}className="menu_secondary">Resume Game</button>
+                    <button onClick={()=>{setMenu(false); setDelay(1000)}}className="menu_secondary">Resume Game</button>
                 </div>
             </div> 
             : 
@@ -238,7 +238,7 @@ const Memory_game = () => {
             <div className="name4">memory</div>
             <div className="utilities4">
                 {
-                    screen <= 600 ? <button onClick={()=>{setMenu(true); console.log(menu)}} className="utilities_mobile"> Menu</button> : 
+                    screen <= 600 ? <button onClick={()=>{setMenu(true); setDelay(null)}} className="utilities_mobile"> Menu</button> : 
                         <>
                             <button onClick={()=>shuffle(false)} className="btn_primary">Restart</button>
                             <button onClick={()=>shuffle(true)}className="btn_secondary">New Game</button>

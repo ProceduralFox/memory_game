@@ -489,7 +489,7 @@ button {
     width: 64vmin;
     height: 64vmin;
 
-    margin-top: 10vh;
+
 }
 
 .card6{
@@ -739,6 +739,8 @@ button {
     .grid6{
         width: 82vmin;
         height: 82vmin;
+
+        margin-top: 8vh;
     }
 
     .card6{
