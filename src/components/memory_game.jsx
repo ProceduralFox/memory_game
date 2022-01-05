@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../styles/memory_game.styles.css'
 
 
-const Memory_game = () => {
+const MemoryGame = () => {
 
     const generate = (size) =>{
         const pairs = (size * size) / 2
@@ -70,14 +70,6 @@ const Memory_game = () => {
         }
     }
 
-    const game_click = () => {
-        if(active){
-            
-        } else {
-
-        }
-    }
-
     const settings_click = (id, value) => {
         const temp = [...settings]
         temp[id] = value
@@ -107,7 +99,6 @@ const Memory_game = () => {
     const [cards, setCards] = useState(generate(6))
     const [active, setActive] = useState()
     const [moves, setMoves] = useState(0)
-    const [solved, setSolved] = useState([])
     const [started, setStarted] = useState(false)
     const [menu, setMenu] = useState(false)
     const [settings, setSettings] = useState([5, 5, 5, 5])
@@ -194,7 +185,7 @@ const Memory_game = () => {
     return (
     <div className="body">
         {
-            paired == (settings[2] * settings[2])/2 ?
+            paired === (settings[2] * settings[2])/2 ?
 
             <div className="popup">
                 <div className="win_square">
@@ -222,7 +213,7 @@ const Memory_game = () => {
         }
 
         {
-            menu == true ? 
+            menu === true ? 
             <div className="popup">
                 <div className="menu_square">
                     <button onClick={()=>{shuffle(false); setMenu(false)}}className="menu_primary">Restart</button>
@@ -250,7 +241,7 @@ const Memory_game = () => {
         <div className={`grid${settings[2]}`}>
             {cards.map((card, index)=>{
 
-                if(card[1]==1){
+                if(card[1]===1){
                     return <div className={`solved card${settings[2]} noselect`}>
                         {card[0]}
                     </div>
@@ -262,13 +253,13 @@ const Memory_game = () => {
                         onClick={()=>{
                             if(active){
                                 const match = cards[active][0] === card[0]
-                                if(match && active!=index){
+                                if(match && active!==index){
                                     var deck = [...cards]
                                     deck[index][1] = 1
                                     deck[active][1] = 1
                                     setPaired(paired+1)
 
-                                    if(paired + 1 == (settings[2] * settings[2])/2){
+                                    if(paired + 1 === (settings[2] * settings[2])/2){
                                         setDelay(null)
                                     }
                                 } 
@@ -296,4 +287,4 @@ const Memory_game = () => {
     </div>);
 }
  
-export default Memory_game;
+export default MemoryGame;
