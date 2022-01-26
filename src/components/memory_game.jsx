@@ -20,12 +20,8 @@ const MemoryGame = () => {
         const deck = [...a]
         var m = deck.length - 1
 
-        console.log("shuffle raw ran", m)
-        console.log("input is", a)
-
         while(m){
             const n = Math.floor(Math.random() * m);
-            console.log("the inner loop runs too")
             const temp = deck[m]
             deck[m] = deck[n]
             deck[n] = temp
@@ -172,7 +168,6 @@ const MemoryGame = () => {
                         board = shuffle_raw(board)
                         setCards(board)
                         setStarted(true)
-                        console.log(active)
 
                         setDelay(1000)
                         
@@ -209,7 +204,7 @@ const MemoryGame = () => {
                 </div>
             </div>
             :
-            <div className=""></div>
+            null
         }
 
         {
@@ -242,7 +237,7 @@ const MemoryGame = () => {
             {cards.map((card, index)=>{
 
                 if(card[1]===1){
-                    return <div className={`solved card${settings[2]} noselect`}>
+                    return <div key ={index} className={`solved card${settings[2]} noselect`}>
                         {card[0]}
                     </div>
                 }
@@ -251,7 +246,7 @@ const MemoryGame = () => {
                     <div key={index} 
                         className={`${active===index ? 'clicked':'unclicked'} card${settings[2]} noselect`}
                         onClick={()=>{
-                            if(active){
+                            if(!(active===undefined)){
                                 const match = cards[active][0] === card[0]
                                 if(match && active!==index){
                                     var deck = [...cards]

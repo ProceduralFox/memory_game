@@ -31,8 +31,6 @@ html{
 
     /* overflow: hidden; */
 
-    background: hotpink;
-
     height: 100vh;
 }
 
@@ -242,7 +240,7 @@ button {
 .btn_big{
     width: 54.1rem;
     height: min(7rem, 10vh);
-    width: 100%;
+    width: 90%;
 
     border-radius: 3.5rem;
 
