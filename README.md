@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+# App premise and architecture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This App is one in a collection of projects that I've built to design provided by https://www.frontendmentor.io/. I've done several of these because I believe that a design-to-code workflow is common in many companies and I've wanted to demonstrate my ability to work to an assignment. I was provided with figma files, and a desired feature description and the implementation was all on me.
 
-## Available Scripts
+An array of length determined by the user is mapped over and a circular card is rendered for each element. When a user clicks on a card the value of it's corresponding element is compared to the value of the last clicked card to see whether there is a "match" which increments a counter. There are conditionals in place to avoid clicking on the same card twice triggering a match and of course handling the first click. Once a number of matches equal to half the length of the array is reached(we are matching pairs after all) a state change is triggered which then renders a victory pop-up over the grid which allows either a reset of the same ruleset or a a return to the initial menu.
 
-In the project directory, you can run:
+A useInterval hook also runs during this measuring the time the user has taken using javascript setInterval.
 
-### `yarn start`
+# Most important lesson
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The most important thing I've learned with this App is the importance of planning out your code ahead of time. With this App I've simply started writing and soon I had a functioning single component App that did what it was meant to do, but that was also quite unreadable compared to my other projects. If I took the time the before starting to more clearly plan out the structure I would have ended up with much more readable code structure.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+While this ultimately doesn't matter as much in small solo projects that I can keep entirely in my own memory, I think the importance of improving my ability to write code which other developers will have an easy time working with is of paramount importance for my career.
