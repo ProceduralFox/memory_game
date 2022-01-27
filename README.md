@@ -8,6 +8,6 @@ A useInterval hook also runs during this measuring the time the user has taken u
 
 # Most important lesson
 
-The most important thing I've learned with this App is the importance of planning out your code ahead of time. With this App I've simply started writing and soon I had a functioning single component App that did what it was meant to do, but that was also quite unreadable compared to my other projects. If I took the time the before starting to more clearly plan out the structure I would have ended up with much more readable code structure.
+The most important thing I've learned with this App is the importance of planning out your code ahead of time. With Memory Game I've simply started writing and soon I had a functioning single component App that did what it was meant to do, but that was also quite unreadable compared to my other projects. If I took the time before starting to more clearly plan out the structure I would have ended up with much more readable code structure.
 
 While this ultimately doesn't matter as much in small solo projects that I can keep entirely in my own memory, I think the importance of improving my ability to write code which other developers will have an easy time working with is of paramount importance for my career.
